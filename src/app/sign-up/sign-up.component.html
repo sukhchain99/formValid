@@ -1,0 +1,57 @@
+<span *ngIf = "submitted; then signIn else signUp">Condition is valid.</span>
+
+<ng-template #signIn>
+  {{diagnostic}}
+  <div class="container">
+    <form [formGroup]="formGroup" (ngSubmit)="onClickSubmit(formGroup.value)" target="_self">
+      <span>Email: {{email}}</span><br/>
+      <input type="email" class="fortextbox" name="email" placeholder="Email ID" required formControlName="email">
+      <br/>
+      <span>Password: </span><br/>
+      <input type="password" name="password" placeholder="Password" required formControlName="password">
+      <br/>
+  
+      <input type="submit" value="Log In" (click)="onSubmit()">
+    </form>
+</div>
+</ng-template>
+
+
+<ng-template #signUp>
+  {{diagnostic}}
+  <div class="container">
+      <form [formGroup]="formGroup" (ngSubmit)="onClickSubmit(formGroup.value)" target="_self">
+        
+        <!-- Name -->
+        <span>Name: {{name}}</span><br/>
+        <input type="text" name="name" placeholder="Name" required minlength="4" formControlName="name">
+        <br/>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+          class="alert">
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 4 characters long.
+          </div>
+        </div>
+
+        <!-- Email -->
+        <span>Email: {{email}}</span><br/>
+        <input type="email" name="email" placeholder="Email ID" required formControlName="email">
+        <br/>
+        <span>Password: </span><br/>
+        <input type="password" name="password" placeholder="Password" required formControlName="password">
+        <br/>
+        <span>Date of Birth: </span><br/>
+        <input type="date" name="DOB" required formControlName="DOB">
+        <br/><br/>
+        
+        <input type="radio" name="gender" value="male" formControlName="gender" checked> Male<br>
+        <input type="radio" name="gender" value="female" formControlName="gender"> Female<br>
+        <input type="radio" name="gender" value="other" formControlName="gender"> Other
+    
+        <input type="submit" value="Submit" (click)="onSubmit()">
+      </form>
+  </div>
+</ng-template>

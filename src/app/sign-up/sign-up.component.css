@@ -1,0 +1,27 @@
+form {
+    margin-top: 10%;
+    margin-left: 35%;
+    width: 500px;
+    height: auto;
+    /*background-color: indianred;*/
+}
+
+input[type = text], input[type = password], input[type = email] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #B3A9A9;
+    box-sizing: border-box;
+}
+input[type = submit] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #B3A9A9;
+    box-sizing: border-box;
+}
+
+.alert {
+    color: indianred;
+}
